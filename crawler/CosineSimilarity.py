@@ -49,7 +49,7 @@ def comparisonSimilarity(articles,number,titles,topic):
 		# build csv file
 		csvWrite(numbers,similarity)
 		# to kafka consumer
-		# StoK.sendData(numbers,similarity,topic)
+		StoK.sendData(numbers,similarity,topic)
 		similarity = []
 		numbers = []
 
@@ -59,6 +59,7 @@ def bubbleSort(number,similarity,numbers):
 		for j in range(len(similarity)):
 			
 			if similarity[i]>similarity[j]:
+				# print("{:} change {:}".format(similarity[i],similarity[j]))
 				temp = similarity[i]
 				similarity[i] = similarity[j]
 				similarity[j] = temp 
@@ -68,10 +69,13 @@ def bubbleSort(number,similarity,numbers):
 
 def csvWrite(numbers,similarity):
 	with open(Global.CRAWLER_FILE_NAME,"a") as csv_file:
-		csv_writer = csv.writer(csv_file)
-		getdata=[numbers[0].split(",")[0]]
-		getdata+=[numbers[i].split(",")[1] for i in range(Global.TOP_NEWS_NUMBER)]
-		csv_writer.writerow(getdata)
+		try:
+			csv_writer = csv.writer(csv_file)
+			getdata=[numbers[0].split(",")[0]]
+			getdata+=[numbers[i].split(",")[1] for i in range(Global.TOP_NEWS_NUMBER)]
+			csv_writer.writerow(getdata)
+		except:
+			pass
 		
 	
 def makeCsv():
