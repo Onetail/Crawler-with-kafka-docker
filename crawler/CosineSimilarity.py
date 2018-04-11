@@ -49,7 +49,7 @@ def comparisonSimilarity(articles,number,titles,topic):
 		# build csv file
 		csvWrite(numbers,similarity)
 		# to kafka consumer
-		StoK.sendData(numbers,similarity,topic)
+		# StoK.sendData(numbers,similarity,topic)
 		similarity = []
 		numbers = []
 
