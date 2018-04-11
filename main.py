@@ -10,18 +10,18 @@ def main():
         print("默認 爬資料")
         cs.makeCsv()
         while 1:
-            Crawler.get_articles(Global.YAHOO_URL_POLITICS,"politices")
+            Crawler.get_articles(Global.YAHOO_URL_POLITICS,"politics")
             Crawler.get_articles(Global.YAHOO_URL_ENTERTAINMENT,"entertainment")  
             print("\n本次資料已取完!\n")
             time.sleep(10800) # 3 hours
 
     else:
         
-        if sys.argv[1] == "consumer":
-             cons.Print("politices")
+        if sys.argv[1].upper().strip() == "consumer":
+             cons.Print("politics")
              cons.Print("entertainment")
 
-        elif sys.argv[1] == "request":
+        elif sys.argv[1].upper().strip() == "request":
             cs.makeCsv()
             while 1:
                 Crawler.get_articles(Global.YAHOO_URL_POLITICS,"politics")
