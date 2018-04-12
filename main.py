@@ -17,11 +17,11 @@ def main():
 
     else:
         
-        if sys.argv[1].upper().strip() == "consumer":
+        if sys.argv[1].upper().strip() == "CONSUMER":
              cons.Print("politics")
              cons.Print("entertainment")
 
-        elif sys.argv[1].upper().strip() == "request":
+        elif sys.argv[1].upper().strip() == "REQUEST":
             cs.makeCsv()
             while 1:
                 Crawler.get_articles(Global.YAHOO_URL_POLITICS,"politics")
