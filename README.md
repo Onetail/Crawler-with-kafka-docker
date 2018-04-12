@@ -12,3 +12,7 @@
 
 > This is use kafka-docker for message queue and python crawler get data 
 > doing analysis cosine similarity for top 5 
+
+> csv content 
+
+> ![csv content detail top 5 news](https://imgur.com/xNBr5We)
